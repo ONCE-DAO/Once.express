@@ -20,9 +20,10 @@ export class OnceExpress implements Once {
     instance.express.use(cors())
 
     instance.express.get('/', (req, res) => {
-      res.sendFile(path.resolve('dist/Once.html'))
+      res.sendFile(path.resolve('dist/EAMD.ucp/Components/tla/EAM/once.ts@main/src/5_ux/view/html/Once.html'))
     })
     instance.express.use('/', serveIndex('dist', { icons: true }))
+    
     instance.express.use('/', express.static('dist', {}))
     // instance.express.use('/docs', express.static('docs', {}))
 
