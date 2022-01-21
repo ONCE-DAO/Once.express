@@ -17,12 +17,15 @@ export class OnceExpress extends Once {
   server: Server[] = []
   static async start (port = 8080) {
     const instance = new OnceExpress()
-    console.log('running in node')
     instance.express.use(cors())
 
     instance.express.get('/', (req, res) => {
       res.sendFile(path.resolve('dist/EAMD.ucp/Components/tla/EAM/once.ts@main/src/5_ux/view/html/Once.html'))
     })
+    instance.express.get('/Once.class.js', (req, res) => {
+      res.sendFile(path.resolve('dist/EAMD.ucp/Components/tla/EAM/once.ts@main/src/2_systems/Once.class.js'))
+    })
+
     instance.express.use('/', serveIndex('dist', { icons: true }))
 
     instance.express.use('/', express.static('dist', {}))
